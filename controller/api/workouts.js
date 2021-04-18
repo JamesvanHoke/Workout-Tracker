@@ -34,8 +34,8 @@ router.get("/workouts", async (req, res) => {
     const resp = await Workout.find({})
     res.json(resp)
   } catch (err) {
-    // throwing error for some reason, works though.
-    // console.log(err);
+    console.log(err);
+    return;
   }
 });
 
@@ -48,6 +48,7 @@ router.post("/workouts", async (req, res) => {
     res.json(response);
   } catch (err) {
     console.log(err);
+    return;
   }
 });
 
@@ -69,7 +70,8 @@ router.get("/workouts/range", async (req, res) => {
     const resp = await Workout.find({}).sort({ day: -1 }).limit(7);
     res.json(resp);
   } catch (err) {
-    // console.log(err);
+    console.log(err);
+    return;
   }
 });
 
